@@ -3,7 +3,7 @@
 In this personal project, I attempt the different stages of an end-to-end data science project. This project uses a dataset from the Urban Redevelopment Authorithy (URA) API. It contains more than 100,000 private property transactions between 2017-2022.
 
 ## Summary of Project 
-In this project, I have done:
+### Outline:
 1. Acquiring Dataset from REST API (see API_data_extraction.py)
 2. Data Processing, Feature Extraction & Exploratory Data Analysis (see Exploratory_Data_Analysis.ipynb)
 3. Model Training, Experimentation and Selection (see Model_selection_experimentation.ipynb)
