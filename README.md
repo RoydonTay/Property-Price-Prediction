@@ -1,6 +1,6 @@
 # Property-Price-Prediction
 ## About Project
-In this personal project, I attempt the different stages of an end-to-end data science project. This project uses a dataset from the Urban Redevelopment Authorithy (URA) API. It contains more than 100,000 private property transactions between 2017-2022.
+In this personal project, I attempt the different stages of an end-to-end data science project. This project uses a dataset from the Urban Redevelopment Authority (URA) API. It contains more than 100,000 private property transactions between 2017-2022.
 
 ## Summary of Project 
 ### Outline:
