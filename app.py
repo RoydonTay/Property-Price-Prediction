@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import pickle
 from zipfile import ZipFile
+from sklearn.ensemble import RandomForestRegressor
 
 # App interface
 st.markdown("# SG Private Property Price Prediction Web App" )
