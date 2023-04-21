@@ -11,7 +11,7 @@ In this personal project, I attempt the different stages of an end-to-end data s
 ### Key Findings
 - With the current dataset, there may be insufficient data points and features for the model to generalize well and make accurate predicitions for landed and freehold porperties.
 - After pivoting the project to only focus on Strata properties, prediction accuracy improved significantly.
-- Best performing model type: After testing Tree-based (Random Forest), Linear (Ridge Regression) and Neural Network (Multi-layer Perceptron) models, Random Forest model performed the best. 
+- Best performing model type: After testing Tree-based (Random Forest and XGBoost), Linear (Ridge Regression) and Neural Network (Multi-layer Perceptron) models, Random Forest model performed the best. 
 
 ### Possible improvements for future iterations
 - Merging of dataset with data from OneMap API, to get additional features such as proximity of property to facilities and amenities.
