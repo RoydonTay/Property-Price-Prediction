@@ -8,7 +8,7 @@ from sklearn.ensemble import RandomForestRegressor
 st.markdown("# SG Private Property Price Prediction Web App" )
 st.markdown("In my personal project I have trained a model to produce price predictions for strata properties, with a lease period within 100 years. It is trained on private property transaction data from 2017-2022, provided by URA's API.")
 st.markdown("## Using the web app:")
-st.markdown("1. To get started, go to my [GitHub Repository](https://github.com/RoydonTay/Property-Price-Prediction), and download the 'best_model.zip' file. Upload the file below.")
+st.markdown("1. To get started, download the 'best_model.zip' file from this [Google Drive link](https://drive.google.com/file/d/1SrGpWm2DvPguSrmt2knE9r1Mb0idGOJI/view?usp=sharing). Upload the file below.")
 
 uploaded_file = st.file_uploader("Upload 'best_model.zip' file here:")
 
