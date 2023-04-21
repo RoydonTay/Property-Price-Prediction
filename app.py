@@ -72,13 +72,20 @@ if st.button('Submit'):
     data_input = np.array([area_float, floor_encoded, prop_encoded, lease_left_float, x_float, y_float])
     data_input = data_input.reshape(1, -1)
     prediction = loaded_model.predict(data_input)
-    st.write("Estimated Price of Property: ${}".format(round(prediction.item(0), 2)))
+    st.markdown("Estimated Price of Property: **${}**".format(round(prediction.item(0), 2)))
 
 else:
     st.write('Click button to see price prediction')
 
-st.markdown("**DISCLAIMER**:")
+st.markdown("## Disclaimer:")
 st.markdown("- Whilst every effort has been taken during the development of this model for it to be as accurate and reliable as possible it is important that the user understands its outputs are still predictions and not absolute. Any decisions taken whist using this tool are the responsibility of the user and no liability whatsoever will be taken by me.")
 st.markdown("- This project was intended to be used for my portfolio and not for individual use.")
-st.markdown("- Finally, the model is trained with past data and may become more outdated with time as the property market changes. I may no longer create any updated versions.")
+st.markdown("- Finally, the model is trained with past data and may become outdated with time as the property market changes. I may no longer create any updated versions.")
+
+st.markdown("### Model Accuracy on Test Split Data (Random Forest Regressor):")
+st.markdown("- Mean Absolute Error: 49871.847780550044")
+st.markdown("- Root Mean Squared Error: 129728.00314684339")
 st.markdown("Created by: Roydon Tay")
+
+
+
