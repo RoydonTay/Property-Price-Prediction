@@ -43,7 +43,7 @@ floor_range = st.selectbox(
 
 property_type = st.selectbox(
     "Please select floor range of property (Strata types only):",
-    ("Executive Condominium", "Apartment", "Condominium", "Strata Terrace", "Strata Semi-detached", "Strata Detached"),
+    ("Executive Condominium", "Apartment", "Condominium"),
 )
 
 # Button to run model
@@ -57,7 +57,7 @@ if st.button('Submit'):
     # Convert categorical inputs into numerical labels
     floor_lst = ["01-05", "06-10", "11-15", "16-20", "21-25", "26-30", "31-35", "36-40", "41-45", "46-50", "51-55", "56-60", "61-65", "66-70", "71-75", "B1-B5"]
     floor_encoded = floor_lst.index(floor_range)
-    prop_lst = ["Executive Condominium", "Apartment", "Condominium", "Strata Terrace", "Strata Semi-detached", "Strata Detached"]
+    prop_lst = ["Executive Condominium", "Apartment", "Condominium"]
     prop_encoded = prop_lst.index(property_type)
 
     # Unzip model file
