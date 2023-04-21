@@ -7,11 +7,11 @@ In this personal project, I attempt the different stages of an end-to-end data s
 1. Acquiring Dataset from REST API (see [API_data_extraction.py](https://github.com/RoydonTay/Property-Price-Prediction/blob/main/API_data_extraction.py))
 2. Data Processing, Feature Extraction & Exploratory Data Analysis (see [Exploratory_Data_Analysis.ipynb](https://github.com/RoydonTay/Property-Price-Prediction/blob/main/Exploratory_Data_Analysis.ipynb))
 3. Model Training, Experimentation and Selection (see [Model_selection_experimentation.ipynb](https://github.com/RoydonTay/Property-Price-Prediction/blob/main/Model_selection_experimentation.ipynb))
-4. Hosted a simple app on Streamlit that allows users to try generating predictions for different inputs using the model. (see this [link](https://roydontay-property-price-prediction-app-9bejkn.streamlit.app)) To use it, please download 'best_model.zip' and upload it to the app (instructions in web app).
+4. Hosted a simple app on Streamlit that allows users to try generating predictions for different inputs using the model. [Click Link to Open](https://roydontay-property-price-prediction-app-9bejkn.streamlit.app)
 
 ### Key Findings
 - With the current dataset, there may be insufficient data points and features for the model to generalize well and make accurate predicitions for landed and freehold porperties.
-- After pivoting the project to only focus on Strata properties, prediction accuracy improved significantly.
+- After pivoting the project to only focus on Condominiums with lease within 100 years, prediction accuracy improved significantly.
 - Best performing model type: After testing Tree-based (Random Forest and XGBoost), Linear (Ridge Regression) and Neural Network (Multi-layer Perceptron) models, Random Forest model performed the best. 
 
 ### Possible improvements for future iterations
