@@ -3,16 +3,15 @@ import numpy as np
 import pickle
 from zipfile import ZipFile
 
-# loading the temp.zip and creating a zip object
-with ZipFile("best_model.zip", 'r') as zObject:
-    zObject.extract("best_model.pkl")
-zObject.close()
-
 # App interface
-st.header("SG Private Property Price Prediction Web App" )
-st.markdown("In my personal project I have trained a model to produce price predictions for strata properties, with a lease period within 100 years. It is trained on private property transaction data from 2017-2022, provided by URA's API. Code and developing process is shared in my [GitHub Repository](https://github.com/RoydonTay/Property-Price-Prediction).")
-st.write("Don't have a property in mind yet? Click submit with the current values to see what a unit in RIVERPARC RESIDENCE (Punggol Drive) might cost!")
+st.markdown("# SG Private Property Price Prediction Web App" )
+st.markdown("In my personal project I have trained a model to produce price predictions for strata properties, with a lease period within 100 years. It is trained on private property transaction data from 2017-2022, provided by URA's API.")
+st.markdown("## Using the web app:")
+st.markdown("1. To get started, go to my [GitHub Repository](https://github.com/RoydonTay/Property-Price-Prediction), and download the 'best_model.zip' file. Upload the file below.")
 
+uploaded_file = st.file_uploader("Upload 'best_model.zip' file here:")
+
+st.markdown("2. Fill up your input and hit the 'Submit' button once you are done! Don't have a property in mind yet? Click submit with the current values to see what a unit in RIVERPARC RESIDENCE (Punggol Drive) might cost!")
 
 area = st.text_input(
     "Floor Area (sq m):",
@@ -60,8 +59,16 @@ if st.button('Submit'):
     prop_lst = ["Executive Condominium", "Apartment", "Condominium", "Strata Terrace", "Strata Semi-detached", "Strata Detached"]
     prop_encoded = prop_lst.index(property_type)
 
+    # Unzip model file
+    if uploaded_file:
+        with ZipFile(uploaded_file, 'r') as zObject:
+            pickle_model = zObject.extract("best_model.pkl")
+        zObject.close()
+    else:
+        st.markdown("**Model not uploaded**. Please do Step 1.")
+
     # Load model and predict
-    loaded_model = pickle.load(open("best_model.pkl", 'rb'))
+    loaded_model = pickle.load(open(pickle_model, 'rb'))
     data_input = np.array([area_float, floor_encoded, prop_encoded, lease_left_float, x_float, y_float])
     data_input = data_input.reshape(1, -1)
     prediction = loaded_model.predict(data_input)
