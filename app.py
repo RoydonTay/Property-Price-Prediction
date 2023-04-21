@@ -5,7 +5,7 @@ from zipfile import ZipFile
 from sklearn.ensemble import RandomForestRegressor
 
 # App interface
-st.markdown("# SG Private Property Price Prediction Web App" )
+st.markdown("# SG Condominium Price Prediction Web App" )
 st.markdown("In my personal project I have trained a model to produce price predictions for strata properties, with a lease period within 100 years. It is trained on private property transaction data from 2017-2022, provided by URA's API.")
 st.markdown("## Using the web app:")
 st.markdown("1. To get started, download the 'best_model.zip' file from this [Google Drive link](https://drive.google.com/file/d/1SrGpWm2DvPguSrmt2knE9r1Mb0idGOJI/view?usp=sharing). Upload the file below.")
