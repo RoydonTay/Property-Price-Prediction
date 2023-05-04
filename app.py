@@ -3,16 +3,13 @@ import numpy as np
 import pickle
 from zipfile import ZipFile
 from sklearn.ensemble import RandomForestRegressor
+import gdown
 
 # App interface
-st.markdown("# SG Condominium Price Prediction Web App" )
-st.markdown("In my personal project I have trained a model to produce price predictions for strata properties, with a lease period within 100 years. It is trained on private property transaction data from 2017-2022, provided by URA's API.")
+st.markdown("# SG Condominium Price Prediction" )
+st.markdown("In my personal project I have trained a random forest regressor model to produce price predictions for condominiums with a lease period within 100 years. It is trained on private property transaction data from 2017-2022, provided by URA's API.")
 st.markdown("## Using the web app:")
-st.markdown("1. To get started, download the 'best_model.zip' file from this [Google Drive link](https://drive.google.com/file/d/1SrGpWm2DvPguSrmt2knE9r1Mb0idGOJI/view?usp=sharing). Upload the file below.")
-
-uploaded_file = st.file_uploader("Upload 'best_model.zip' file here:")
-
-st.markdown("2. Fill up your input and hit the 'Submit' button once you are done! Don't have a property in mind yet? Click submit with the current values to see what a unit in RIVERPARC RESIDENCE (Punggol Drive) might cost!")
+st.markdown("Fill up your input and hit the 'Submit' button once you are done! Don't have a property in mind yet? Try the model with the current values to see what a unit in RIVERPARC RESIDENCE (Punggol Drive) might cost!")
 
 area = st.text_input(
     "Floor Area (sq m):",
@@ -46,6 +43,19 @@ property_type = st.selectbox(
     ("Executive Condominium", "Apartment", "Condominium"),
 )
 
+# Downloading and unzipping model pickle file from Google Drive
+@st.cache_data
+def load_model():
+    id = '1SrGpWm2DvPguSrmt2knE9r1Mb0idGOJI'
+    output = 'best_model.zip'
+    uploaded_file = gdown.download(id=id, output=output, quiet=False)
+    with ZipFile(uploaded_file, 'r') as zObject:
+        pickle_model = zObject.extract("best_model.pkl")
+    zObject.close()
+    return pickle_model
+
+pickle_model = load_model()
+
 # Button to run model
 if st.button('Submit'):
     # Convert numerical inputs to float
@@ -60,14 +70,6 @@ if st.button('Submit'):
     prop_lst = ["Executive Condominium", "Apartment", "Condominium"]
     prop_encoded = prop_lst.index(property_type)
 
-    # Unzip model file
-    if uploaded_file:
-        with ZipFile(uploaded_file, 'r') as zObject:
-            pickle_model = zObject.extract("best_model.pkl")
-        zObject.close()
-    else:
-        st.markdown("**Model not uploaded**. Please do Step 1.")
-
     # Load model and predict
     loaded_model = pickle.load(open(pickle_model, 'rb'))
     data_input = np.array([area_float, floor_encoded, prop_encoded, lease_left_float, x_float, y_float])
@@ -81,9 +83,9 @@ else:
 st.markdown("## Disclaimer:")
 st.markdown("- Whilst every effort has been taken during the development of this model for it to be as accurate and reliable as possible it is important that the user understands its outputs are still predictions and not absolute. Any decisions taken whist using this tool are the responsibility of the user and no liability whatsoever will be taken by me.")
 st.markdown("- This project was intended to be used for my portfolio and not for individual use.")
-st.markdown("- Finally, the model is trained with past data and may become outdated with time as the property market changes. I may no longer create any updated versions.")
+st.markdown("- Finally, the model is trained with past data and may become outdated with time as the property market changes. I may no longer create any updated versions. This model was trained with data retrieved on: 17/06/2022")
 
-st.markdown("### Model Accuracy on Test Split Data (Random Forest Regressor):")
+st.markdown("### Model Accuracy on Test Split Data (For reference):")
 st.markdown("- Mean Absolute Error: 49871.847780550044")
 st.markdown("- Root Mean Squared Error: 129728.00314684339")
 st.markdown("Created by: Roydon Tay")
