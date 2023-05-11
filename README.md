@@ -1,6 +1,6 @@
-# Property-Price-Prediction
+# SG-Property-Price-Prediction
 ## About Project
-In this personal project, I attempt the different stages of an end-to-end data science project. This project uses a dataset from the Urban Redevelopment Authority (URA) API. It contains over 100,000 private property transactions between 2017-2022.
+In this personal project, I attempt the different stages of an end-to-end data science project. This project uses a dataset from the [Urban Redevelopment Authority (URA) API](https://www.ura.gov.sg/maps/api/#private-residential-property). It contains over 100,000 private property transactions between 2017-2022 in Singapore.
 
 ## Summary of Project 
 ### Outline:
