@@ -1,9 +1,7 @@
 import streamlit as st
 import numpy as np
 import pickle
-from zipfile import ZipFile
 from sklearn.ensemble import RandomForestRegressor
-import gdown
 
 # App interface
 st.markdown("# SG Condominium Price Prediction" )
@@ -46,15 +44,10 @@ property_type = st.selectbox(
 # Downloading and unzipping model pickle file from Google Drive
 @st.cache_data
 def load_model():
-    id = '1SrGpWm2DvPguSrmt2knE9r1Mb0idGOJI'
-    output = 'best_model.zip'
-    uploaded_file = gdown.download(id=id, output=output, quiet=False)
-    with ZipFile(uploaded_file, 'r') as zObject:
-        pickle_model = zObject.extract("best_model.pkl")
-    zObject.close()
-    return pickle_model
+    loaded_model = pickle.load(open('best_model.pkl', 'rb'))
+    return loaded_model
 
-pickle_model = load_model()
+model = load_model()
 
 # Button to run model
 if st.button('Submit'):
@@ -70,11 +63,10 @@ if st.button('Submit'):
     prop_lst = ["Executive Condominium", "Apartment", "Condominium"]
     prop_encoded = prop_lst.index(property_type)
 
-    # Load model and predict
-    loaded_model = pickle.load(open(pickle_model, 'rb'))
+    # predict
     data_input = np.array([area_float, floor_encoded, prop_encoded, lease_left_float, x_float, y_float])
     data_input = data_input.reshape(1, -1)
-    prediction = loaded_model.predict(data_input)
+    prediction = model.predict(data_input)
     st.markdown("Estimated Price of Property: **${}**".format(round(prediction.item(0), 2)))
 
 else:
