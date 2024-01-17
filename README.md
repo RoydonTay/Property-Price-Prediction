@@ -8,7 +8,7 @@ In this personal project, I attempt the different stages of an end-to-end data s
 1. Acquiring Dataset from REST API (see [API_data_extraction.py](https://github.com/RoydonTay/Property-Price-Prediction/blob/main/API_data_extraction.py))
 2. Data Processing, Feature Extraction & Exploratory Data Analysis (see [Exploratory_Data_Analysis.ipynb](https://github.com/RoydonTay/Property-Price-Prediction/blob/main/Exploratory_Data_Analysis.ipynb))
 3. Model Training, Experimentation and Selection (see [Model_selection_experimentation.ipynb](https://github.com/RoydonTay/Property-Price-Prediction/blob/main/Model_selection_experimentation.ipynb))
-4. Hosted a simple app on Streamlit that allows users to try generating predictions for different inputs using the model. [Click to see app.](https://roydontay-property-price-prediction-app-fr1cq7.streamlit.app)
+4. Hosted a simple app on Streamlit that allows users to try generating predictions for different inputs using the model. [Click to see app.](https://sg-property-price-prediction.streamlit.app)
 
 ### Key Findings:
 - After pivoting the project to only focus on Condominiums with lease within 100 years, prediction accuracy improved significantly (MAE reduced by 82.4%). Focusing only on landed properties did not achieve any improvement. This could mean the prices of landed property rely more heavily on other features not considered in this dataset.
