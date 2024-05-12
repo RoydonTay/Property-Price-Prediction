@@ -74,7 +74,7 @@ def load_model():
 
 @st.cache_data
 def load_data():
-    return pd.read_pickle(r"Data\final_features.pkl")
+    return pd.read_pickle(r"final_features.pkl")
 
 model = load_model()
 
