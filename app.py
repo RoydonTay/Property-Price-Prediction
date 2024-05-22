@@ -7,16 +7,25 @@ from sklearn.ensemble import RandomForestRegressor
 
 # Introductory text
 st.markdown("# SG Condominium Price Prediction")
-# Link to my repo
-'''
-    Created by: Roydon Tay [![Repo](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/RoydonTay)    
-'''
-st.markdown("<br>",unsafe_allow_html=True)
+
+# Links to socials
+st.markdown('### Created by: Roydon Tay') 
+col1, col2, _, _, _, _ = st.columns(6)
+with col1:
+    st.markdown('<a href="https://www.linkedin.com/in/roydon-tay/" target="_blank"><img alt="LinkedIn" src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a>',unsafe_allow_html=True)
+with col2:
+    st.markdown('<a href="https://github.com/RoydonTay" target="_blank"><img alt="GitHub" src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white" /></a>',unsafe_allow_html=True)
+
 st.markdown(
 '''
-In my personal project I have trained a random forest regressor model to produce price predictions 
+In my personal project I have trained a Random Forest Regressor model to produce price predictions 
 for condominiums with a lease period within 100 years. It is trained on private property 
 transaction data from 2017-2022, provided by URA's API.
+'''
+)
+st.divider()
+st.markdown(
+'''
 ## Using the web app:
 Fill up your input and hit the 'Submit' button to see prediction output and visualisation plots.
 ''')
@@ -129,11 +138,11 @@ st.markdown(
 is important that the user understands its outputs are still predictions and not absolute. Any decisions taken whist using this 
 tool are the responsibility of the user and no liability whatsoever will be taken by me.
 - This project was intended to be used for my portfolio and not for individual use.
-- Finally, the model is trained with past data and may become outdated with time as the property market changes. I may no longer 
+- Finally, the model was trained with past data and may become outdated with time as the property market changes. I may no longer 
 create any updated versions. This model was trained with data retrieved on: 17/06/2022
 
 ### Model Accuracy on Test Split Data (For reference):
-- Mean Absolute Error: 49871.847780550044"
-- Root Mean Squared Error: 129728.00314684339
+- Mean Absolute Error: 49871.85
+- Root Mean Squared Error: 129728.00
 '''
 )
